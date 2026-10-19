@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Кофейня «Зерно» — свежий кофе и выпечка</title>
+  <meta name="description" content="Кофейня «Зерно»: кофе свежей обжарки, домашняя выпечка и кофе с собой. Адрес, меню, часы работы.">
+  <meta name="theme-color" content="#F6EFE4">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+  <!-- Шапка -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#top" class="logo" aria-label="Зерно — на главную">
+        <svg class="logo__icon" viewBox="0 0 32 32" aria-hidden="true">
+          <ellipse cx="16" cy="16" rx="10" ry="13" transform="rotate(30 16 16)" fill="currentColor"/>
+          <path d="M10 25c4-4 8-14 12-18" stroke="#F6EFE4" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </svg>
+        Зерно
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Основная навигация">
+        <a href="#about" class="nav__link">О нас</a>
+        <a href="#menu" class="nav__link">Меню</a>
+        <a href="#reviews" class="nav__link">Отзывы</a>
+        <a href="#contacts" class="nav__link">Контакты</a>
+        <a href="tel:+79001234567" class="btn btn--small nav__cta">Заказать с собой</a>
+      </nav>
+
+      <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- Первый экран -->
+    <section class="hero">
+      <div class="container hero__inner">
+        <div class="hero__text">
+          <p class="eyebrow">Кофейня в центре города</p>
+          <h1 class="hero__title">Кофе, ради которого стоит выйти из&nbsp;дома</h1>
+          <p class="hero__lead">Свежая обжарка, тёплая выпечка и&nbsp;пять столиков у&nbsp;окна. Заходите посидеть или заберите стакан с&nbsp;собой&nbsp;— сварим за&nbsp;три минуты.</p>
+          <div class="hero__actions">
+            <a href="#contacts" class="btn">Как нас найти</a>
+            <a href="tel:+79001234567" class="btn btn--ghost">Заказать с собой</a>
+          </div>
+          <p class="hero__status" data-status>
+            <span class="status-dot"></span>
+            <span data-status-text>Открыто ежедневно</span>
+          </p>
+        </div>
+
+        <div class="hero__media">
+          <div class="ph ph--hero" role="img" aria-label="Фото: чашка капучино на деревянном столе">
+            <span class="ph__label">Фото: капучино на столе</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- О нас -->
+    <section class="section about" id="about">
+      <div class="container about__inner">
+        <div class="about__media reveal">
+          <div class="ph ph--tall" role="img" aria-label="Фото: интерьер кофейни">
+            <span class="ph__label">Фото: интерьер</span>
+          </div>
+          <div class="ph ph--small" role="img" aria-label="Фото: бариста за работой">
+            <span class="ph__label">Фото: бариста</span>
+          </div>
+        </div>
+
+        <div class="about__text reveal">
+          <p class="eyebrow">О нас</p>
+          <h2 class="section__title">Маленькая кофейня с&nbsp;большой любовью к&nbsp;зерну</h2>
+          <p>Мы открылись в&nbsp;2019 году, чтобы в&nbsp;нашем городе появилось место, где кофе варят так&nbsp;же внимательно, как в&nbsp;больших столицах,&nbsp;— но&nbsp;без суеты и&nbsp;очередей.</p>
+          <p>Зерно обжариваем небольшими партиями каждую неделю, выпечку печём сами по&nbsp;утрам. Бариста помнит, кому капучино на&nbsp;овсяном, а&nbsp;кому двойной эспрессо.</p>
+
+          <ul class="features">
+            <li class="feature">
+              <span class="feature__num">7</span>
+              <span class="feature__text">дней от&nbsp;обжарки до&nbsp;вашей чашки</span>
+            </li>
+            <li class="feature">
+              <span class="feature__num">3</span>
+              <span class="feature__text">минуты на&nbsp;кофе с&nbsp;собой</span>
+            </li>
+            <li class="feature">
+              <span class="feature__num">0</span>
+              <span class="feature__text">полуфабрикатов в&nbsp;выпечке</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Меню -->
+    <section class="section menu" id="menu">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="eyebrow">Меню</p>
+          <h2 class="section__title">Что у&nbsp;нас варят и&nbsp;пекут</h2>
+          <p class="section__lead">Любой напиток можно взять с&nbsp;собой. Альтернативное молоко&nbsp;— +50&nbsp;₽.</p>
+        </div>
+
+        <div class="menu__tabs reveal" role="tablist" aria-label="Категории меню">
+          <button class="tab is-active" role="tab" aria-selected="true" data-filter="all">Всё</button>
+          <button class="tab" role="tab" aria-selected="false" data-filter="coffee">Кофе</button>
+          <button class="tab" role="tab" aria-selected="false" data-filter="other">Не кофе</button>
+          <button class="tab" role="tab" aria-selected="false" data-filter="food">Выпечка</button>
+        </div>
+
+        <ul class="menu__list reveal">
+          <li class="menu-item" data-cat="coffee">
+            <div class="menu-item__row">
+              <h3 class="menu-item__name">Эспрессо</h3>
+              <span class="menu-item__dots"></span>
+              <span class="menu-item__price">140&nbsp;₽</span>
+            </div>
+            <p class="menu-item__desc">Плотный, с&nbsp;нотами шоколада и&nbsp;ореха. 40&nbsp;мл</p>
+          </li>
+          <li class="menu-item" data-cat="coffee">
+            <div class="menu-item__row">
+              <h3 class="menu-item__name">Капучино</h3>
+              <span class="menu-item__dots"></span>
+              <span class="menu-item__price">220&nbsp;₽</span>
+            </div>
+            <p class="menu-item__desc">Эспрессо и&nbsp;бархатная молочная пена. 300&nbsp;мл</p>
+          </li>
+          <li class="menu-item" data-cat="coffee">
+            <div class="menu-item__row">
+              <h3 class="menu-item__name">Флэт уайт</h3>
+              <span class="menu-item__dots"></span>
+              <span class="menu-item__price">240&nbsp;₽</span>
+            </div>
+            <p class="menu-item__desc">Двойной эспрессо, меньше молока, ярче вкус. 200&nbsp;мл</p>
+          </li>
+          <li class="menu-item" data-cat="coffee">
+            <div class="menu-item__row">
+              <h3 class="menu-item__name">Раф «Зерно»</h3>
+              <span class="menu-item__dots"></span>
+              <span class="menu-item__price">280&nbsp;₽</span>
+            </div>
+            <p class="menu-item__desc">Фирменный: сливки, ваниль и&nbsp;щепотка морской соли. 300&nbsp;мл</p>
+          </li>
+          <li class="menu-item" data-cat="coffee">
+            <div class="menu-item__row">
+              <h3 class="menu-item__name">Фильтр-кофе</h3>
+              <span class="menu-item__dots"></span>
+              <span class="menu-item__price">180&nbsp;₽</span>
+            </div>
+            <p class="menu-item__desc">Зерно недели, заваренное в&nbsp;воронке. 300&nbsp;мл</p>
+          </li>
+          <li class="menu-item" data-cat="other">
+            <div class="menu-item__row">
+              <h3 class="menu-item__name">Какао с&nbsp;маршмеллоу</h3>
+              <span class="menu-item__dots"></span>
+              <span class="menu-item__price">230&nbsp;₽</span>
+            </div>
+            <p class="menu-item__desc">Настоящий бельгийский шоколад. 300&nbsp;мл</p>
+          </li>
+          <li class="menu-item" data-cat="food">
+            <div class="menu-item__row">
+              <h3 class="menu-item__name">Круассан</h3>
+              <span class="menu-item__dots"></span>
+              <span class="menu-item__price">160&nbsp;₽</span>
+            </div>
+            <p class="menu-item__desc">Слоёный, на&nbsp;сливочном масле, из&nbsp;печи каждое утро</p>
+          </li>
+          <li class="menu-item" data-cat="food">
+            <div class="menu-item__row">
+              <h3 class="menu-item__name">Сырники со&nbsp;сметаной</h3>
+              <span class="menu-item__dots"></span>
+              <span class="menu-item__price">290&nbsp;₽</span>
+            </div>
+            <p class="menu-item__desc">Три штуки, с&nbsp;ягодным соусом. До&nbsp;12:00</p>
+          </li>
+        </ul>
+
+        <!-- Призыв заказать с собой -->
+        <div class="takeaway reveal">
+          <div class="takeaway__text">
+            <h3 class="takeaway__title">Торопитесь? Закажите заранее</h3>
+            <p>Позвоните или напишите в&nbsp;Telegram&nbsp;— приготовим к&nbsp;вашему приходу, заберёте без очереди.</p>
+          </div>
+          <div class="takeaway__actions">
+            <a href="tel:+79001234567" class="btn btn--light">Позвонить</a>
+            <a href="https://t.me/zerno_coffee" class="btn btn--outline-light" target="_blank" rel="noopener">Telegram</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Отзывы -->
+    <section class="section reviews" id="reviews">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="eyebrow">Отзывы</p>
+          <h2 class="section__title">Что говорят гости</h2>
+        </div>
+
+        <div class="reviews__list reveal">
+          <figure class="review">
+            <div class="review__stars" aria-label="Оценка 5 из 5">★★★★★</div>
+            <blockquote class="review__text">«Лучший капучино в&nbsp;городе, без преувеличения. Захожу каждое утро по&nbsp;дороге на&nbsp;работу&nbsp;— готовят быстро, а&nbsp;круассаны ещё тёплые».</blockquote>
+            <figcaption class="review__author">
+              <span class="avatar" aria-hidden="true">А</span>
+              <span><strong>Анна</strong><br><small>постоянный гость</small></span>
+            </figcaption>
+          </figure>
+          <figure class="review">
+            <div class="review__stars" aria-label="Оценка 5 из 5">★★★★★</div>
+            <blockquote class="review__text">«Очень уютно: мягкий свет, тихая музыка, можно спокойно поработать с&nbsp;ноутбуком. Раф с&nbsp;солью&nbsp;— отдельная любовь».</blockquote>
+            <figcaption class="review__author">
+              <span class="avatar" aria-hidden="true">Д</span>
+              <span><strong>Дмитрий</strong><br><small>отзыв на&nbsp;картах</small></span>
+            </figcaption>
+          </figure>
+          <figure class="review">
+            <div class="review__stars" aria-label="Оценка 5 из 5">★★★★★</div>
+            <blockquote class="review__text">«Приходим с&nbsp;детьми по&nbsp;выходным на&nbsp;сырники и&nbsp;какао. Персонал душевный, всегда подскажут, что попробовать новенького».</blockquote>
+            <figcaption class="review__author">
+              <span class="avatar" aria-hidden="true">О</span>
+              <span><strong>Ольга</strong><br><small>мама двоих детей</small></span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Адрес, часы, карта -->
+    <section class="section contacts" id="contacts">
+      <div class="container contacts__inner">
+        <div class="contacts__info reveal">
+          <p class="eyebrow">Как нас найти</p>
+          <h2 class="section__title">Ждём в&nbsp;гости</h2>
+
+          <div class="contacts__block">
+            <h3 class="contacts__label">Адрес</h3>
+            <p class="contacts__address">ул. Центральная, 15<br><span class="muted">вход со&nbsp;стороны сквера, рядом с&nbsp;почтой</span></p>
+          </div>
+
+          <div class="contacts__block">
+            <h3 class="contacts__label">Часы работы</h3>
+            <!-- data-open / data-close — часы работы в формате ЧЧ:ММ, data-days — дни недели (0 = воскресенье) -->
+            <ul class="hours" data-hours>
+              <li class="hours__row" data-days="1,2,3,4,5" data-open="07:30" data-close="21:00">
+                <span>Понедельник — пятница</span><span>7:30 – 21:00</span>
+              </li>
+              <li class="hours__row" data-days="6,0" data-open="09:00" data-close="22:00">
+                <span>Суббота — воскресенье</span><span>9:00 – 22:00</span>
+              </li>
+            </ul>
+            <p class="hours__status" data-status>
+              <span class="status-dot"></span>
+              <span data-status-text>Открыто ежедневно</span>
+            </p>
+          </div>
+
+          <div class="contacts__actions">
+            <!-- Замените координаты на реальные -->
+            <a href="https://yandex.ru/maps/?rtext=~56.4197,40.4491&rtt=pd" class="btn" target="_blank" rel="noopener">Построить маршрут</a>
+            <a href="tel:+79001234567" class="btn btn--ghost">+7 (900) 123-45-67</a>
+          </div>
+        </div>
+
+        <div class="contacts__map reveal">
+          <!-- Карта OpenStreetMap. Замените bbox и marker на координаты кофейни -->
+          <iframe
+            title="Кофейня «Зерно» на карте"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=40.4420%2C56.4160%2C40.4560%2C56.4235&amp;layer=mapnik&amp;marker=56.4197%2C40.4491"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Футер -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="#top" class="logo logo--light">
+          <svg class="logo__icon" viewBox="0 0 32 32" aria-hidden="true">
+            <ellipse cx="16" cy="16" rx="10" ry="13" transform="rotate(30 16 16)" fill="currentColor"/>
+            <path d="M10 25c4-4 8-14 12-18" stroke="#3A281D" stroke-width="2" fill="none" stroke-linecap="round"/>
+          </svg>
+          Зерно
+        </a>
+        <p class="footer__tagline">Кофейня, где вас помнят по&nbsp;имени.</p>
+      </div>
+
+      <div class="footer__col">
+        <h3 class="footer__title">Контакты</h3>
+        <a href="tel:+79001234567" class="footer__link">+7 (900) 123-45-67</a>
+        <a href="mailto:hello@zerno-coffee.ru" class="footer__link">hello@zerno-coffee.ru</a>
+        <p class="footer__muted">ул. Центральная, 15</p>
+      </div>
+
+      <div class="footer__col">
+        <h3 class="footer__title">Мы в соцсетях</h3>
+        <div class="socials">
+          <a href="https://t.me/zerno_coffee" class="social" target="_blank" rel="noopener" aria-label="Telegram">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.9 4.3 18.7 19.4c-.2 1-.9 1.3-1.7.8l-4.8-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.5 13.2 1.8 11.7c-1-.3-1-1 .2-1.5L20.5 3c.9-.3 1.6.2 1.4 1.3Z" fill="currentColor"/></svg>
+          </a>
+          <a href="https://vk.com/zerno_coffee" class="social" target="_blank" rel="noopener" aria-label="ВКонтакте">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.8 17.5C6.6 17.5 3.1 13.3 3 6.3h3.1c.1 5.1 2.4 7.3 4.2 7.7V6.3h2.9v4.4c1.8-.2 3.7-2.2 4.3-4.4h2.9c-.5 2.7-2.5 4.7-3.9 5.5 1.4.7 3.7 2.4 4.5 5.7h-3.2c-.7-2.2-2.4-3.9-4.6-4.1v4.1h-.4Z" fill="currentColor"/></svg>
+          </a>
+          <a href="https://wa.me/79001234567" class="social" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.5 1 2.7.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.6-.3Z" fill="currentColor"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      <p>© <span data-year>2026</span> Кофейня «Зерно»</p>
+      <a href="#top" class="footer__link">Наверх ↑</a>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
