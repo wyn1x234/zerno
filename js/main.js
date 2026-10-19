@@ -21,7 +21,7 @@ function setNav(open) {
 burger.addEventListener('click', () => setNav(!nav.classList.contains('is-open')));
 
 // закрываем меню при переходе по ссылке и по Escape
-nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setNav(false)));
+nav.querySelectorAll('a, button').forEach((link) => link.addEventListener('click', () => setNav(false)));
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') setNav(false);
 });
@@ -125,7 +125,7 @@ let toastTimer;
 document.querySelectorAll('[data-demo]').forEach((link) => {
   link.addEventListener('click', (e) => {
     e.preventDefault();
-    toast.textContent = 'Это концепт: кофейня вымышленная, контакты не настоящие';
+    toast.textContent = 'Это демо';
     toast.classList.add('is-visible');
     clearTimeout(toastTimer);
     toastTimer = setTimeout(() => toast.classList.remove('is-visible'), 3000);

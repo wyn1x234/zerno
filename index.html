@@ -11,7 +11,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/style.css">
+  <!-- ?v= — версия файлов: увеличьте после правок CSS/JS, чтобы браузеры не брали старые из кэша -->
+  <link rel="stylesheet" href="css/style.css?v=2">
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
@@ -37,7 +38,7 @@
         <a href="#menu" class="nav__link">Меню</a>
         <a href="#reviews" class="nav__link">Отзывы</a>
         <a href="#contacts" class="nav__link">Контакты</a>
-        <a href="#" data-demo class="btn btn--small nav__cta">Заказать с собой</a>
+        <button type="button" data-demo class="btn btn--small nav__cta">Заказать с собой</button>
       </nav>
 
       <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="nav">
@@ -68,7 +69,7 @@
           <p class="hero__lead">Свежая обжарка, тёплая выпечка и&nbsp;пять столиков у&nbsp;окна. Заходите посидеть или заберите стакан с&nbsp;собой&nbsp;— сварим за&nbsp;три минуты.</p>
           <div class="hero__actions">
             <a href="#contacts" class="btn">Как нас найти</a>
-            <a href="#" data-demo class="btn btn--outline-light">Заказать с собой</a>
+            <button type="button" data-demo class="btn btn--outline-light">Заказать с собой</button>
           </div>
           <p class="hero__status" data-status>
             <span class="status-dot"></span>
@@ -217,8 +218,8 @@
             <p>Позвоните или напишите в&nbsp;Telegram&nbsp;— приготовим к&nbsp;вашему приходу, заберёте без очереди.</p>
           </div>
           <div class="takeaway__actions">
-            <a href="#" data-demo class="btn btn--light">Позвонить</a>
-            <a href="#" data-demo class="btn btn--outline-light">Telegram</a>
+            <button type="button" data-demo class="btn btn--light">Позвонить</button>
+            <button type="button" data-demo class="btn btn--outline-light">Telegram</button>
           </div>
         </div>
       </div>
@@ -293,7 +294,7 @@
           <div class="contacts__actions">
             <!-- Замените координаты на реальные -->
             <a href="https://yandex.ru/maps/?rtext=~56.4197,40.4491&rtt=pd" class="btn" target="_blank" rel="noopener">Построить маршрут</a>
-            <a href="#" data-demo class="btn btn--ghost">+7 (000) 000-00-00</a>
+            <button type="button" data-demo class="btn btn--ghost">+7 (000) 000-00-00</button>
           </div>
         </div>
 
@@ -326,23 +327,23 @@
 
       <div class="footer__col">
         <h3 class="footer__title">Контакты</h3>
-        <a href="#" data-demo class="footer__link">+7 (000) 000-00-00</a>
-        <a href="#" data-demo class="footer__link">hello@zerno.example</a>
+        <button type="button" data-demo class="footer__link">+7 (000) 000-00-00</button>
+        <button type="button" data-demo class="footer__link">hello@zerno.example</button>
         <p class="footer__muted">г.&nbsp;Суздаль, ул.&nbsp;Центральная,&nbsp;15</p>
       </div>
 
       <div class="footer__col">
         <h3 class="footer__title">Мы в соцсетях</h3>
         <div class="socials">
-          <a href="#" data-demo class="social" aria-label="Telegram">
+          <button type="button" data-demo class="social" aria-label="Telegram">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.9 4.3 18.7 19.4c-.2 1-.9 1.3-1.7.8l-4.8-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.5 13.2 1.8 11.7c-1-.3-1-1 .2-1.5L20.5 3c.9-.3 1.6.2 1.4 1.3Z" fill="currentColor"/></svg>
-          </a>
-          <a href="#" data-demo class="social" aria-label="ВКонтакте">
+          </button>
+          <button type="button" data-demo class="social" aria-label="ВКонтакте">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.8 17.5C6.6 17.5 3.1 13.3 3 6.3h3.1c.1 5.1 2.4 7.3 4.2 7.7V6.3h2.9v4.4c1.8-.2 3.7-2.2 4.3-4.4h2.9c-.5 2.7-2.5 4.7-3.9 5.5 1.4.7 3.7 2.4 4.5 5.7h-3.2c-.7-2.2-2.4-3.9-4.6-4.1v4.1h-.4Z" fill="currentColor"/></svg>
-          </a>
-          <a href="#" data-demo class="social" aria-label="WhatsApp">
+          </button>
+          <button type="button" data-demo class="social" aria-label="WhatsApp">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.5 1 2.7.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.6-.3Z" fill="currentColor"/></svg>
-          </a>
+          </button>
         </div>
       </div>
     </div>
@@ -357,6 +358,6 @@
   <!-- Подсказка при клике на ненастоящие контакты -->
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=2"></script>
 </body>
 </html>
