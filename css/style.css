@@ -129,6 +129,40 @@ ul { margin: 0; padding: 0; list-style: none; }
   background: linear-gradient(145deg, #D9BE9C 0%, #B98E66 55%, #8C6343 100%);
 }
 
+/* ---------- Плашка концепта ---------- */
+.concept-bar {
+  padding: 8px var(--gutter);
+  background: var(--dark);
+  color: rgba(246, 239, 228, .82);
+  font-size: 13px;
+  line-height: 1.4;
+  letter-spacing: .02em;
+  text-align: center;
+}
+
+/* ---------- Подсказка для ненастоящих контактов ---------- */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  z-index: 100;
+  width: max-content;
+  max-width: calc(100% - 2 * var(--gutter));
+  padding: 14px 22px;
+  border-radius: var(--radius-sm);
+  background: var(--accent-dark); /* заметно и на светлом, и на тёмном фоне */
+  color: #fff;
+  font-size: 15px;
+  line-height: 1.45;
+  text-align: center;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, 12px);
+  transition: opacity .25s, transform .25s, visibility .25s;
+}
+.toast.is-visible { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+
 /* ---------- Шапка ---------- */
 .header {
   position: sticky;
@@ -584,8 +618,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 
   .nav {
     position: fixed;
-    inset: var(--header-h) 0 auto 0;
-    height: calc(100dvh - var(--header-h));
+    inset: var(--header-h) 0 auto 0; /* от шапки: backdrop-filter делает её точкой отсчёта */
+    height: calc(100dvh - var(--nav-top, var(--header-h)));
     flex-direction: column;
     align-items: stretch;
     gap: 0;

@@ -5,8 +5,13 @@
 /* ---------- Мобильное меню ---------- */
 const burger = document.getElementById('burger');
 const nav = document.getElementById('nav');
+const header = document.getElementById('header');
 
 function setNav(open) {
+  // меню тянется от шапки до низа экрана; пока видна плашка концепта, шапка сдвинута вниз
+  if (open) {
+    document.documentElement.style.setProperty('--nav-top', `${header.getBoundingClientRect().bottom}px`);
+  }
   nav.classList.toggle('is-open', open);
   burger.setAttribute('aria-expanded', String(open));
   burger.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
@@ -25,7 +30,6 @@ window.matchMedia('(min-width: 861px)').addEventListener('change', (e) => {
 });
 
 /* ---------- Тень у шапки при прокрутке ---------- */
-const header = document.getElementById('header');
 const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 8);
 window.addEventListener('scroll', onScroll, { passive: true });
 onScroll();
@@ -113,6 +117,20 @@ if ('IntersectionObserver' in window) {
 } else {
   revealEls.forEach((el) => el.classList.add('is-visible'));
 }
+
+/* ---------- Ненастоящие контакты (концепт) ---------- */
+const toast = document.getElementById('toast');
+let toastTimer;
+
+document.querySelectorAll('[data-demo]').forEach((link) => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    toast.textContent = 'Это концепт: кофейня вымышленная, контакты не настоящие';
+    toast.classList.add('is-visible');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('is-visible'), 3000);
+  });
+});
 
 /* ---------- Год в футере ---------- */
 document.querySelector('[data-year]').textContent = new Date().getFullYear();
