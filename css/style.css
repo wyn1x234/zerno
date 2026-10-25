@@ -479,7 +479,111 @@ ul { margin: 0; padding: 0; list-style: none; }
   font-size: 20px;
 }
 
+/* ---------- Заказ на мероприятие ---------- */
+.events__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 6vw, 96px);
+  align-items: start;
+}
+
+.events__list { margin-top: 36px; }
+.events__list li {
+  position: relative;
+  padding: 14px 0 14px 34px;
+  border-bottom: 1px solid var(--line);
+  font-size: 17px;
+}
+.events__list li::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 50%;
+  width: 14px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--accent);
+  transform: translateY(-50%) rotate(30deg); /* кофейное зерно */
+}
+
+.event-form {
+  padding: clamp(28px, 4vw, 48px);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+.event-form__title {
+  margin-bottom: 28px;
+  font-family: var(--font-head);
+  font-size: clamp(26px, 3vw, 32px);
+}
+
+.field { margin-bottom: 20px; }
+.field__label { display: block; margin-bottom: 8px; font-size: 15px; font-weight: 600; }
+.field__optional { font-weight: 400; color: var(--muted); }
+
+.field__input {
+  width: 100%;
+  min-height: 52px;
+  padding: 12px 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  color: var(--text);
+  font: 16px/1.5 var(--font-body); /* 16px — чтобы iOS не увеличивал страницу при фокусе */
+  transition: border-color .2s, box-shadow .2s;
+}
+.field__input::placeholder { color: #A8968A; }
+.field__input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(168, 104, 60, .18); }
+.field__input--area { resize: vertical; min-height: 110px; }
+.field__input[aria-invalid="true"] { border-color: var(--closed); }
+
+.field__error { margin: 6px 0 0; font-size: 14px; color: var(--closed); }
+.field__error:empty { display: none; }
+
+/* поле-ловушка для ботов: убрано с экрана, но не display:none — его часто пропускают боты */
+.field--trap { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+.consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--muted);
+  cursor: pointer;
+}
+.consent__box {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin: 1px 0 0;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+.consent a { color: var(--accent-dark); }
+
+.event-form__submit { width: 100%; margin-top: 8px; }
+.event-form__submit:disabled { opacity: .6; cursor: wait; transform: none; }
+
+.event-form__status { margin: 16px 0 0; font-weight: 600; }
+.event-form__status:empty { display: none; }
+.event-form__status.is-success { color: var(--open); }
+.event-form__status.is-error { color: var(--closed); }
+
+.event-form__note { margin: 16px 0 0; font-size: 13px; line-height: 1.5; color: var(--muted); }
+
+/* ---------- Страница политики ---------- */
+.legal__inner { max-width: 760px; }
+.legal__back { display: inline-block; margin-bottom: 32px; color: var(--accent-dark); font-weight: 600; text-decoration: none; }
+/* длинное «конфиденциальности» не помещается в 375px при обычном размере */
+.legal h1 { font-size: clamp(30px, 8vw, 58px); hyphens: auto; overflow-wrap: break-word; }
+.legal h2 { margin: 40px 0 12px; font-family: var(--font-head); font-size: 24px; }
+.legal p { color: var(--text); }
+
 /* ---------- Контакты ---------- */
+.contacts { background: var(--bg-alt); }
+
 .contacts__inner {
   display: grid;
   grid-template-columns: 1fr 1.15fr;
@@ -651,6 +755,7 @@ button.footer__link { border: 0; color: inherit; text-align: left; }
   .nav__cta { margin-top: 32px; min-height: 56px; font-size: 16px; }
 
   .about__inner,
+  .events__inner,
   .contacts__inner { grid-template-columns: 1fr; }
 
   /* текст на всю ширину — затемнение ровнее */

@@ -132,5 +132,97 @@ document.querySelectorAll('[data-demo]').forEach((link) => {
   });
 });
 
+/* ---------- Форма заказа на мероприятие ---------- */
+const eventForm = document.getElementById('event-form');
+
+if (eventForm) {
+  const fields = {
+    name: eventForm.elements.name,
+    phone: eventForm.elements.phone,
+    comment: eventForm.elements.comment,
+    website: eventForm.elements.website,
+    consent: eventForm.elements.consent,
+  };
+  const submitBtn = eventForm.querySelector('.event-form__submit');
+  const status = eventForm.querySelector('.event-form__status');
+
+  // то же правило, что и в worker/telegram-form.js
+  const isPhoneValid = (value) => {
+    const digits = value.replace(/\D/g, '');
+    return /^[+\d\s()-]+$/.test(value) && digits.length >= 10 && digits.length <= 15;
+  };
+
+  const setError = (field, message) => {
+    const error = document.getElementById(`${field.id}-error`);
+    field.setAttribute('aria-invalid', String(Boolean(message)));
+    if (message) field.setAttribute('aria-describedby', error.id);
+    else field.removeAttribute('aria-describedby');
+    error.textContent = message;
+  };
+
+  const validate = () => {
+    const errors = [
+      [fields.name, fields.name.value.trim() ? '' : 'Как к вам обращаться?'],
+      [fields.phone, isPhoneValid(fields.phone.value.trim()) ? '' : 'Укажите телефон, например +7 900 000-00-00'],
+      [fields.consent, fields.consent.checked ? '' : 'Нужно согласие, чтобы мы могли связаться с вами'],
+    ];
+    errors.forEach(([field, message]) => setError(field, message));
+    const firstInvalid = errors.find(([, message]) => message);
+    if (firstInvalid) firstInvalid[0].focus();
+    return !firstInvalid;
+  };
+
+  const setStatus = (text, type) => {
+    status.textContent = text;
+    status.classList.toggle('is-success', type === 'success');
+    status.classList.toggle('is-error', type === 'error');
+  };
+
+  // ошибка исчезает, как только поле исправлено
+  [fields.name, fields.phone, fields.consent].forEach((field) => {
+    field.addEventListener(field.type === 'checkbox' ? 'change' : 'input', () => {
+      if (field.getAttribute('aria-invalid') === 'true') setError(field, '');
+    });
+  });
+
+  eventForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    setStatus('', '');
+    if (!validate()) return;
+
+    const endpoint = eventForm.dataset.endpoint;
+    if (!endpoint) {
+      setStatus('Форма пока не подключена — заявка не отправлена.', 'error');
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Отправляем…';
+
+    try {
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: fields.name.value.trim(),
+          phone: fields.phone.value.trim(),
+          comment: fields.comment.value.trim(),
+          website: fields.website.value,
+          consent: fields.consent.checked,
+        }),
+      });
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+      eventForm.reset();
+      setStatus('Спасибо! Заявка отправлена, скоро свяжемся с вами.', 'success');
+    } catch {
+      setStatus('Не получилось отправить заявку. Попробуйте ещё раз через минуту.', 'error');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Отправить заявку';
+    }
+  });
+}
+
 /* ---------- Год в футере ---------- */
 document.querySelector('[data-year]').textContent = new Date().getFullYear();

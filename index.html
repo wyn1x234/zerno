@@ -30,7 +30,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
   <!-- ?v= — версия файлов: увеличьте после правок CSS/JS, чтобы браузеры не брали старые из кэша -->
-  <link rel="stylesheet" href="css/style.css?v=2">
+  <link rel="stylesheet" href="css/style.css?v=3">
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
@@ -55,6 +55,7 @@
         <a href="#about" class="nav__link">О нас</a>
         <a href="#menu" class="nav__link">Меню</a>
         <a href="#reviews" class="nav__link">Отзывы</a>
+        <a href="#events" class="nav__link">Мероприятия</a>
         <a href="#contacts" class="nav__link">Контакты</a>
         <button type="button" data-demo class="btn btn--small nav__cta">Заказать с собой</button>
       </nav>
@@ -281,6 +282,65 @@
       </div>
     </section>
 
+    <!-- Заказ на мероприятие -->
+    <section class="section events" id="events">
+      <div class="container events__inner">
+        <div class="events__text reveal">
+          <p class="eyebrow">Мероприятия</p>
+          <h2 class="section__title">Праздник в&nbsp;«Зерне»</h2>
+          <p class="section__lead">Дни рождения, встречи выпускников, камерные свадьбы и&nbsp;рабочие завтраки. Закроем зал под вас, приготовим кофе-брейк и&nbsp;испечём торт.</p>
+          <ul class="events__list">
+            <li>До&nbsp;25 гостей в&nbsp;зале</li>
+            <li>Меню и&nbsp;торт под ваш повод</li>
+            <li>Ответим в&nbsp;течение часа в&nbsp;рабочее время</li>
+          </ul>
+        </div>
+
+        <!--
+          data-endpoint — адрес Cloudflare Worker, который пересылает заявку в Telegram
+          (см. worker/README.md). Пока он пустой, форма не отправляется и говорит, что не подключена.
+        -->
+        <form class="event-form reveal" id="event-form" data-endpoint="" novalidate>
+          <h3 class="event-form__title">Оставьте заявку</h3>
+
+          <div class="field">
+            <label class="field__label" for="ef-name">Имя</label>
+            <input class="field__input" id="ef-name" name="name" type="text" autocomplete="name" maxlength="100" required>
+            <p class="field__error" id="ef-name-error"></p>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="ef-phone">Телефон</label>
+            <input class="field__input" id="ef-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="20" placeholder="+7 900 000-00-00" required>
+            <p class="field__error" id="ef-phone-error"></p>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="ef-comment">Комментарий <span class="field__optional">— необязательно</span></label>
+            <textarea class="field__input field__input--area" id="ef-comment" name="comment" rows="4" maxlength="1000" placeholder="Дата, количество гостей, повод"></textarea>
+          </div>
+
+          <!-- Ловушка для спам-ботов: людям поле не видно -->
+          <div class="field--trap" aria-hidden="true">
+            <label for="ef-website">Сайт</label>
+            <input id="ef-website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="field">
+            <label class="consent">
+              <input class="consent__box" id="ef-consent" name="consent" type="checkbox" required>
+              <span>Даю согласие на&nbsp;обработку персональных данных в&nbsp;соответствии с&nbsp;<a href="privacy.html" target="_blank">политикой конфиденциальности</a></span>
+            </label>
+            <p class="field__error" id="ef-consent-error"></p>
+          </div>
+
+          <button class="btn event-form__submit" type="submit">Отправить заявку</button>
+          <p class="event-form__status" role="status" aria-live="polite"></p>
+          <p class="event-form__note">Это демо-форма портфолио: заявка придёт автору сайта, а&nbsp;не&nbsp;в&nbsp;настоящую кофейню.</p>
+        </form>
+      </div>
+    </section>
+
     <!-- Адрес, часы, карта -->
     <section class="section contacts" id="contacts">
       <div class="container contacts__inner">
@@ -377,6 +437,6 @@
   <!-- Подсказка при клике на ненастоящие контакты -->
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <script src="js/main.js?v=2"></script>
+  <script src="js/main.js?v=3"></script>
 </body>
 </html>
