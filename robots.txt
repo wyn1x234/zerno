@@ -1,0 +1,7 @@
+# Поисковики читают robots.txt только из корня домена.
+# Сейчас сайт лежит в /zerno/, поэтому файл заработает при своём домене
+# или если положить его в корень wyn1x234.github.io.
+User-agent: *
+Allow: /
+
+Sitemap: https://wyn1x234.github.io/zerno/sitemap.xml
